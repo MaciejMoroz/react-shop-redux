@@ -4,10 +4,9 @@ export const ACTION_TYPES = {
   PRODUCT_FETCH_ERROR: "PRODUCT_FETCH_ERROR"
 };
 
-export function fetchProduct(product) {
+export function fetchProduct() {
   return {
-    type: ACTION_TYPES.PRODUCT_FETCH,
-    product
+    type: ACTION_TYPES.PRODUCT_FETCH
   };
 }
 
@@ -18,13 +17,13 @@ export function fetchProductSuccess(product) {
   };
 }
 
-export function fetchProductError(product) {
+export function fetchProductError() {
   return {
     type: ACTION_TYPES.PRODUCT_FETCH_ERROR
   };
 }
 
-export function getProducts(product) {
+export function getProducts() {
   return async dispatch => {
     try {
       dispatch(fetchProduct());
@@ -35,7 +34,7 @@ export function getProducts(product) {
       const [product] = data.results;
 
       dispatch(fetchProductSuccess(product));
-      console.log(product);
+      console.log(product, "????????");
     } catch (e) {
       dispatch(fetchProductError());
     }

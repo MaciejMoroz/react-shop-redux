@@ -6,6 +6,7 @@ import Container from "components/Container/Container";
 import Footer from "components/Footer/Footer";
 
 import AboutPage from "pages/About/AboutPage";
+// import CatalogPage from "./pages/Catalog/CatalogPage";
 import CatalogPageContainer from "./container/CatalogContainer";
 import HomePage from "pages/Home/HomePage";
 
