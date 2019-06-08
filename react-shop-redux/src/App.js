@@ -8,10 +8,11 @@ import Footer from "components/Footer/Footer";
 import AboutPage from "pages/About/AboutPage";
 // import CatalogPage from "./pages/Catalog/CatalogPage";
 import CatalogPageContainer from "./container/CatalogContainer";
-import HomePage from "pages/Home/HomePage";
+// import HomePage from "pages/Home/HomePage";
 
 import { Provider } from "react-redux";
 import store from "./store/store";
+import HomePageContainer from "./container/HomePageContainer";
 
 function App() {
   return (
@@ -20,7 +21,7 @@ function App() {
         <>
           <Nav />
           <Container>
-            <Route exact path="/" component={HomePage} />
+            <Route exact path="/" component={HomePageContainer} />
             <Route path="/catalog" component={CatalogPageContainer} />
             <Route path="/about" component={AboutPage} />
           </Container>

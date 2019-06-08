@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 
-import catalogPage from "../pages/Catalog/CatalogPage";
+import HomePage from "../pages/Home/HomePage";
 
 import { fetchProductsWithRedux } from "../actions/actions";
 
@@ -14,9 +14,9 @@ const mapDispatchToProps = {
   fetchProductsWithRedux
 };
 
-const CatalogContainer = connect(
+const HomePageContainer = connect(
   mapStateToProps,
   mapDispatchToProps
-)(catalogPage);
+)(HomePage);
 
-export default CatalogContainer;
+export default HomePageContainer;

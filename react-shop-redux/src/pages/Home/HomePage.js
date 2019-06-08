@@ -1,34 +1,67 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import HeaderBig from "components/Header/HeaderBig";
 import HeaderSmall from "components/Header/HeaderSmall";
-
-import ProductService from "services/ProductService";
 import ProductsList from "components/ProductsList/ProductsList";
 
-const featuredDesktop = ProductService.getProductsByFilter({
-  category: "desktop",
-  featured: true
-});
+const HomePage = ({ product, isLoading, isError, fetchProductsWithRedux }) => {
+  useEffect(() => {
+    fetchProductsWithRedux();
+  }, []);
 
-const featuredTablet = ProductService.getProductsByFilter({
-  category: "tablet",
-  featured: true
-});
+  if (isError) {
+    return <h2>Error while loading... :(</h2>;
+  }
 
-const ProductsSection = ({ title, products }) => (
-  <>
-    <HeaderSmall>{title}</HeaderSmall>
-    <ProductsList products={products} />
-  </>
-);
+  if (isLoading) {
+    return <h2>Loading...</h2>;
+  }
 
-const HomePage = () => (
-  <>
-    <HeaderBig>Welcome to our store</HeaderBig>
-    <ProductsSection title="Desktops" products={featuredDesktop} />
-    <ProductsSection title="Tablets" products={featuredTablet} />
-  </>
-);
+  const getProductsByFilter = ({ name, category, manufacture, featured }) => {
+    let results = product;
+    if (name && name.length) {
+      const searchText = name.toLowerCase();
+      results = results.filter(p => p.name.toLowerCase().includes(searchText));
+    }
+
+    if (category) {
+      results = results.filter(p => p.category === category);
+    }
+
+    if (manufacture) {
+      results = results.filter(p => p.manufacture === manufacture);
+    }
+
+    if (featured) {
+      results = results.filter(p => p.featured === featured);
+    }
+
+    return results;
+  };
+
+  const featuredDesktop = getProductsByFilter({
+    category: "desktop",
+    featured: true
+  });
+
+  const featuredTablet = getProductsByFilter({
+    category: "tablet",
+    featured: true
+  });
+
+  const ProductsSection = ({ title, product }) => (
+    <>
+      <HeaderSmall>{title}</HeaderSmall>
+      <ProductsList product={product} />
+    </>
+  );
+  return (
+    <>
+      <HeaderBig>Welcome to our store</HeaderBig>
+      <ProductsSection title="Desktops" product={featuredDesktop} />
+      <ProductsSection title="Tablets" product={featuredTablet} />
+    </>
+  );
+};
 
 export default HomePage;

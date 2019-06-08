@@ -4,9 +4,10 @@ export const ACTION_TYPES = {
   PRODUCT_FETCH_ERROR: "PRODUCT_FETCH_ERROR"
 };
 
-export function fetchProduct() {
+export function fetchProduct(product) {
   return {
-    type: ACTION_TYPES.PRODUCT_FETCH
+    type: ACTION_TYPES.PRODUCT_FETCH,
+    product
   };
 }
 
@@ -17,26 +18,28 @@ export function fetchProductSuccess(product) {
   };
 }
 
-export function fetchProductError() {
+export function fetchProductError(product) {
   return {
     type: ACTION_TYPES.PRODUCT_FETCH_ERROR
   };
 }
 
-export function getProducts() {
-  return async dispatch => {
-    try {
-      dispatch(fetchProduct());
-      const response = await fetch(
-        "https://api.jsonbin.io/b/5cf311bee36bab4cf3101423"
-      );
-      const data = await response.json();
-      const [product] = data.results;
+export const fetchRandomProduct = () => {
+  const URL = "http://localhost:3001/";
+  return fetch(URL, { method: "GET" }).then(response =>
+    Promise.all([response, response.json()])
+  );
+};
 
-      dispatch(fetchProductSuccess(product));
-      console.log(product, "????????");
-    } catch (e) {
-      dispatch(fetchProductError());
-    }
+export const fetchProductsWithRedux = () => {
+  return dispatch => {
+    dispatch(fetchProduct());
+    return fetchRandomProduct().then(([response, json]) => {
+      if (response.status === 200) {
+        dispatch(fetchProductSuccess(json));
+      } else {
+        dispatch(fetchProductError());
+      }
+    });
   };
-}
+};
