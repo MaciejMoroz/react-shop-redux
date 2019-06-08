@@ -24,11 +24,20 @@ export function fetchProductError(product) {
   };
 }
 
-export function fetchRandomProduct() {
-  return dispatch => {
-    dispatch(fetchProduct());
-    return fetch("https://api.jsonbin.io/b/5cf311bee36bab4cf3101423").then(
-      response => console.log(response.json())
-    );
+export function getProducts(product) {
+  return async dispatch => {
+    try {
+      dispatch(fetchProduct());
+      const response = await fetch(
+        "https://api.jsonbin.io/b/5cf311bee36bab4cf3101423"
+      );
+      const data = await response.json();
+      const [product] = data.results;
+
+      dispatch(fetchProductSuccess(product));
+      console.log(product);
+    } catch (e) {
+      dispatch(fetchProductError());
+    }
   };
 }

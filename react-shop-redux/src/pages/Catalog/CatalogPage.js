@@ -8,11 +8,15 @@ import ProductService from "services/ProductService";
 import styles from "./CatalogPage.module.css";
 import Filters from "./components/Filters/Filters";
 
-import ProductContainer from "../../container/ProductContainer";
+// import { fetchProducts } from "../../actions/actions";
 
 class CatalogPage extends Component {
   manufacturers = ["All", ...ProductService.getManufactures()];
   initFilters = { text: "", manufacture: "All" };
+
+  componentDidMount() {
+    console.log(this.props.getProducts());
+  }
 
   state = {
     products: ProductService.getProducts()
@@ -48,7 +52,7 @@ class CatalogPage extends Component {
           </div>
 
           <div className={styles.ColumnRight}>
-            <ProductContainer />
+            <ProductsList products={products} />
           </div>
         </div>
       </>

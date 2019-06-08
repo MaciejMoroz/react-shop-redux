@@ -1,8 +1,8 @@
 import { connect } from "react-redux";
 
-import ProductsList from "../components/ProductsList/ProductsList";
+import CatalogPage from "../pages/Catalog/CatalogPage";
 
-import { fetchRandomProduct } from "../action/action";
+import { getProducts } from "../actions/actions";
 
 const mapStateToProps = state => ({
   product: state.product,
@@ -11,12 +11,12 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = {
-  fetchRandomProduct
+  getProducts
 };
 
 const ProductContainer = connect(
   mapStateToProps,
   mapDispatchToProps
-)(ProductsList);
+)(CatalogPage);
 
 export default ProductContainer;

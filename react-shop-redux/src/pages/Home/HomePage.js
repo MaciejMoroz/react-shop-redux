@@ -4,8 +4,7 @@ import HeaderBig from "components/Header/HeaderBig";
 import HeaderSmall from "components/Header/HeaderSmall";
 
 import ProductService from "services/ProductService";
-// import ProductsList from "components/ProductsList/ProductsList";
-import ProductsContainer from "container/ProductContainer.js";
+import ProductsList from "components/ProductsList/ProductsList";
 
 const featuredDesktop = ProductService.getProductsByFilter({
   category: "desktop",
@@ -20,7 +19,7 @@ const featuredTablet = ProductService.getProductsByFilter({
 const ProductsSection = ({ title, products }) => (
   <>
     <HeaderSmall>{title}</HeaderSmall>
-    <ProductsContainer products={products} />
+    <ProductsList products={products} />
   </>
 );
 

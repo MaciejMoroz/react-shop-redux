@@ -1,13 +1,14 @@
 import { createStore, applyMiddleware } from "redux";
+import { composeWithDevTools } from "redux-devtools-extension";
+import { createLogger } from "redux-logger";
 import thunk from "redux-thunk";
-
 import reducer from "../reducer/reducer";
 
-const logger = store => next => action => {
-  console.log("dispatching", action);
-  let result = next(action);
-  console.log("next state", store.getState());
-  return result;
-};
+const loggerMiddleware = createLogger();
 
-export default createStore(reducer, applyMiddleware(logger, thunk));
+const store = createStore(
+  reducer,
+  composeWithDevTools(applyMiddleware(loggerMiddleware, thunk))
+);
+
+export default store;

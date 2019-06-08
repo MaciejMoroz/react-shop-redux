@@ -1,9 +1,7 @@
 import products from "../products.json";
-import { fetchRandomProduct } from "../action/action";
 
 export default class ProductService {
   static getProducts() {
-    fetchRandomProduct();
     return products;
   }
 
@@ -12,7 +10,6 @@ export default class ProductService {
     if (name && name.length) {
       const searchText = name.toLowerCase();
       results = results.filter(p => p.name.toLowerCase().includes(searchText));
-      fetchRandomProduct();
     }
 
     if (category) {
