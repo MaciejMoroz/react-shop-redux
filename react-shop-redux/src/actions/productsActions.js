@@ -43,3 +43,9 @@ export const fetchProductsWithRedux = () => {
     });
   };
 };
+
+export const uniqueManufacturers = product => {
+  return product
+    .map(e => e.manufacture)
+    .filter((v, i, a) => a.indexOf(v) === i);
+};

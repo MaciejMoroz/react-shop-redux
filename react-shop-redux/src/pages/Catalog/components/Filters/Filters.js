@@ -67,11 +67,3 @@ class Filters extends Component {
 }
 
 export default Filters;
-
-// {product.map(item => (
-//   <div key={item.id}>
-//     <label className="radioLabel">
-//       <Radio value={item.manufacture} />
-//       {item.manufacture}
-//     </label>
-//   </div>

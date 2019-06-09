@@ -65,10 +65,12 @@ const CatalogPage = ({
   product,
   isError,
   isLoading,
-  fetchProductsWithRedux
+  fetchProductsWithRedux,
+  uniqueManufacturers
 }) => {
   useEffect(() => {
     fetchProductsWithRedux();
+    // eslint-disable-next-line
   }, []);
 
   const [name, searchInput] = useState("");
@@ -89,6 +91,8 @@ const CatalogPage = ({
 
   return (
     <div>
+      {console.log()}
+
       <HeaderBig>Catalog</HeaderBig>
       <div className={styles.Catalog}>
         <div className={styles.ColumnLeft}>
@@ -111,9 +115,13 @@ const CatalogPage = ({
             <h4>Manufacturer</h4>
             <RadioGroup
               name={manufacture}
-              onClick={event =>
-                changeInput(event.target.value.toString().toLowerCase())
-              }
+              onClick={event => {
+                if (event.target.value === undefined) {
+                  changeInput("");
+                } else {
+                  changeInput(event.target.value);
+                }
+              }}
             >
               <label className="radioLabel">
                 <Radio
@@ -124,11 +132,11 @@ const CatalogPage = ({
                 All
               </label>
 
-              {product.map(item => (
-                <div key={item.id}>
+              {uniqueManufacturers(product).map(item => (
+                <div key={item}>
                   <label className="radioLabel">
-                    <Radio value={item.manufacture} />
-                    {item.manufacture}
+                    <Radio value={item.toString().toLowerCase()} />
+                    {item}
                   </label>
                 </div>
               ))}
