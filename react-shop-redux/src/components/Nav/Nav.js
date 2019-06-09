@@ -5,7 +5,6 @@ import styles from "./Nav.module.css";
 import cartImg from "../../img/shopping-cart.png";
 
 import Container from "components/Container/Container";
-import CartCounter from "../cartCounter/CartCounter";
 import CartCounterContainer from "../../container/CartCounterContainer";
 
 const Nav = () => (

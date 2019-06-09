@@ -14,3 +14,15 @@
 .Hidden {
   display: none;
 }
+.Pay {
+  color: #ffff;
+  position: absolute;
+  font-weight: bold;
+  text-align: center;
+  width: 100px;
+  padding: 5px;
+  border: 1px solid white;
+  top: 0;
+  right: 280px;
+  cursor: default;
+}

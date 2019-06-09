@@ -2,12 +2,10 @@ import { connect } from "react-redux";
 
 import CartCounter from "../components/cartCounter/CartCounter";
 
-// const getCartItems = state => state.cartItems;
-
-const mapStateToProps = (state, ownProps) => {
-  console.log(state.cartItems.length, ownProps);
+const mapStateToProps = state => {
   return {
-    cartLength: Number(state.cartItems.length)
+    cartLength: state.cartItems.length,
+    pay: state.cartItems.map(e => e.amount * 1).reduce((a, b) => a + b, 0)
   };
 };
 
