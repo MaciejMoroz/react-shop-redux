@@ -5,6 +5,7 @@ import styles from "./Nav.module.css";
 import cartImg from "../../img/shopping-cart.png";
 
 import Container from "components/Container/Container";
+import CartCounter from "../cartCounter/CartCounter";
 
 const Nav = () => (
   <nav className={styles.Navbar}>
@@ -24,7 +25,8 @@ const Nav = () => (
     <div>
       <Link to="/cart">
         <img src={cartImg} className={styles.CartImg} alt="Logo" />
-      </Link>{" "}
+      </Link>
+      <CartCounter />
     </div>
   </nav>
 );

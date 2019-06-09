@@ -44,8 +44,7 @@ const CatalogPage = ({
         </div>
 
         <div className={styles.ColumnRight}>
-          {console.log(typeof product)}
-          <ProductsList product={product} addProduct={addProduct} />
+          <ProductsList product={product} />
         </div>
       </div>
     </>

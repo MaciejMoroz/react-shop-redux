@@ -26,4 +26,7 @@
 }
 .CartImg {
   padding: 15px 35px;
+  position: relative;
+  top: 0;
+  right: 180px;
 }
