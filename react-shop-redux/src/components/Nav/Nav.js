@@ -6,6 +6,7 @@ import cartImg from "../../img/shopping-cart.png";
 
 import Container from "components/Container/Container";
 import CartCounter from "../cartCounter/CartCounter";
+import CartCounterContainer from "../../container/CartCounterContainer";
 
 const Nav = () => (
   <nav className={styles.Navbar}>
@@ -26,7 +27,8 @@ const Nav = () => (
       <Link to="/cart">
         <img src={cartImg} className={styles.CartImg} alt="Logo" />
       </Link>
-      <CartCounter />
+
+      <CartCounterContainer />
     </div>
   </nav>
 );

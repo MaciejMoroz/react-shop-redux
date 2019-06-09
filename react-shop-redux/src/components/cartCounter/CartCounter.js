@@ -1,12 +1,14 @@
 import React from "react";
 import styles from "./CartCounter.module.css";
 
-import store from "../../store/store";
+const CartCounter = ({ cartLength }) => {
+  console.log(cartLength);
 
-const CartCounter = () => {
-  let storeItems = store.getState();
-  let cartLength = storeItems.cartItems.length;
-  return <p className={styles.CartCounter}>{cartLength}</p>;
+  if (cartLength === 0) {
+    return <p className={styles.Hidden}>{cartLength}</p>;
+  } else {
+    return <p className={styles.CartCounter}>{cartLength}</p>;
+  }
 };
 
 export default CartCounter;

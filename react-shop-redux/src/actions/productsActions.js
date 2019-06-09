@@ -24,7 +24,7 @@ export function fetchProductError() {
   };
 }
 
-export const fetchRandomProduct = () => {
+export const getProducts = () => {
   const URL = "http://localhost:3001/";
   return fetch(URL, { method: "GET" }).then(response =>
     Promise.all([response, response.json()])
@@ -34,7 +34,7 @@ export const fetchRandomProduct = () => {
 export const fetchProductsWithRedux = () => {
   return dispatch => {
     dispatch(fetchProduct());
-    return fetchRandomProduct().then(([response, json]) => {
+    return getProducts().then(([response, json]) => {
       if (response.status === 200) {
         dispatch(fetchProductSuccess(json));
       } else {

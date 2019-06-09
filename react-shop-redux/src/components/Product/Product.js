@@ -11,7 +11,6 @@ const Product = ({
   addProduct
 }) => {
   let handleAddProductToCart = (name, image, amount) => {
-    console.log(id, name, image, amount);
     addProduct(id, name, image, amount);
   };
   if (isError) {
