@@ -25,7 +25,7 @@ export function fetchProductError() {
 }
 
 export const getProducts = () => {
-  const URL = "http://localhost:3001";
+  const URL = "http://react2018-shop.s3-website-eu-west-1.amazonaws.com";
   return fetch(URL, { method: "GET" }).then(response =>
     Promise.all([response, response.json()])
   );
