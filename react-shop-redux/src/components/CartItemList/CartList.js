@@ -2,13 +2,15 @@ import React from "react";
 
 import styles from "./CartList.module.css";
 
-import CartItem from "components/CartItem/CartItem";
+import CartItemContainer from "../../container/cartItemContainer";
 
-const CartList = ({ product }) => (
-  <div className={styles.Products}>
-    {product.map(e => (
-      <CartItem key={e.id} {...e} />
-    ))}
+const CartList = ({ CartItems }) => (
+  <div className={styles.test}>
+    <div className={styles.Products}>
+      {CartItems.map(product => (
+        <CartItemContainer key={product.id} {...product} />
+      ))}
+    </div>
   </div>
 );
 

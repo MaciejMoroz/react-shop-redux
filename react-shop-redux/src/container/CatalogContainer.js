@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import catalogPage from "../pages/Catalog/CatalogPage";
 
 import { fetchProductsWithRedux } from "../actions/productsActions";
-import { addProduct } from "../actions/cartActions";
+// import { addProduct } from "../actions/cartActions";
 
 const mapStateToProps = state => ({
   product: state.products.product,

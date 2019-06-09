@@ -5,7 +5,7 @@ export const ACTION_TYPES = {
 };
 export const addProduct = (id, name, image, amount) => ({
   type: ACTION_TYPES.ADD_PRODUCT_TO_CART,
-  productInCart: {
+  product: {
     id: id,
     name: name,
     image: image,
@@ -17,3 +17,9 @@ export const removeProduct = productId => ({
   type: ACTION_TYPES.REMOVE_PRODUCT_FROM_CART,
   productId
 });
+
+// const mapDispatchToProps = dispatch => {
+//   return {
+//     removeProduct: id => dispatch(removeProduct(id))
+//   };
+// };

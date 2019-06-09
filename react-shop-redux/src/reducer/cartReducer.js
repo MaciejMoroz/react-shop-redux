@@ -5,7 +5,7 @@ const cartReducer = (productsInCart = [], action) => {
     case ACTION_TYPES.ADD_PRODUCT_TO_CART:
       return [...productsInCart, action.product];
 
-    case ACTION_TYPES.REMOVE_BOO:
+    case ACTION_TYPES.REMOVE_PRODUCT_FROM_CART:
       return productsInCart.filter(product => product.id !== action.productId);
     default:
       return productsInCart;

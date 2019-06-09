@@ -21,7 +21,7 @@
   padding: 3px 0px;
 }
 .Button {
-  background: #0b102b;
+  background: #2b0b0b;
   color: #fff;
   border: none;
   position: relative;
@@ -34,7 +34,7 @@
   margin: 10px;
 }
 .Button:hover {
-  background: #fff;
+  background: #ff0000;
   color: #0b102b;
 }
 .Button:before,

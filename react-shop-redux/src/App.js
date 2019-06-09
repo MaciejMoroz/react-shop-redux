@@ -8,10 +8,11 @@ import Footer from "components/Footer/Footer";
 import HomePageContainer from "./container/HomePageContainer";
 import AboutPage from "pages/About/AboutPage";
 import CatalogPageContainer from "./container/CatalogContainer";
-import CartPageContainer from "./container/CartContainer";
+import CartListContainer from "./container/CartListContainer";
 import store from "./store/store";
 
 function App() {
+  console.log(store.getState());
   return (
     <Provider store={store}>
       <Router>
@@ -21,7 +22,7 @@ function App() {
             <Route exact path="/" component={HomePageContainer} />
             <Route path="/catalog" component={CatalogPageContainer} />
             <Route path="/about" component={AboutPage} />
-            <Route path="/cart" component={CartPageContainer} />
+            <Route path="/cart" component={CartListContainer} />
           </Container>
           <Footer />
         </>
