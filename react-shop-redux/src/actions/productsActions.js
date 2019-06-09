@@ -25,7 +25,7 @@ export function fetchProductError() {
 }
 
 export const getProducts = () => {
-  const URL = "http://localhost:3001/";
+  const URL = "http://localhost:3001";
   return fetch(URL, { method: "GET" }).then(response =>
     Promise.all([response, response.json()])
   );

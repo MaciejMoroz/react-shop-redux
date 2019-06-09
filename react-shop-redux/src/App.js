@@ -12,7 +12,7 @@ import CartListContainer from "./container/CartListContainer";
 import store from "./store/store";
 
 function App() {
-  console.log(store.getState());
+  // console.log(store.getState());
   return (
     <Provider store={store}>
       <Router>

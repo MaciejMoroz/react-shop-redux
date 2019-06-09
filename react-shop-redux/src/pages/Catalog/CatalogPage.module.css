@@ -1,11 +1,31 @@
 .Catalog {
-    display: flex;
+  display: flex;
 }
 
 .ColumnLeft {
-    width: 25%;
+  width: 25%;
 }
 
 .ColumnRight {
-    width: 75%;
+  width: 75%;
+}
+
+.Filter {
+  background-color: #f7f7f7;
+  padding: 5px 15px 20px;
+  margin-top: 5px;
+  margin-right: 10px;
+}
+
+.Header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.Clear {
+  color: #00a1b4;
+  text-decoration: none;
+  font-size: 13px;
+  cursor: pointer;
 }

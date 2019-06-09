@@ -25,9 +25,8 @@ const Nav = () => (
     <div>
       <Link to="/cart">
         <img src={cartImg} className={styles.CartImg} alt="Logo" />
+        <CartCounterContainer />
       </Link>
-
-      <CartCounterContainer />
     </div>
   </nav>
 );
