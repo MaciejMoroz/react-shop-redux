@@ -3,14 +3,14 @@ import React, { useEffect } from "react";
 import HeaderBig from "components/Header/HeaderBig";
 import ProductsList from "components/ProductsList/ProductsList";
 import styles from "./CatalogPage.module.css";
-import Filters from "./components/Filters/Filters";
+// import Filters from "./components/Filters/Filters";
 
-// import { fetchProducts } from "../../actions/actions";
 const CatalogPage = ({
   product,
   isLoading,
   isError,
-  fetchProductsWithRedux
+  fetchProductsWithRedux,
+  addProduct
 }) => {
   useEffect(() => {
     fetchProductsWithRedux();
@@ -24,23 +24,28 @@ const CatalogPage = ({
     return <h2>Loading...</h2>;
   }
 
+  // let handleFilterChange = product => {
+  //   let fitredProduct;
+
+  //   return fitredProduct;
+  // };
+
   return (
     <>
       <HeaderBig>Catalog</HeaderBig>
 
       <div className={styles.Catalog}>
         <div className={styles.ColumnLeft}>
-          {/* {
-            <Filters
-            // initValue={}
-            // onChange={}
-            // manufacturers={}
-            />
-          } */}
+          {/* <Filters
+            initValue={product.initFilters}
+            onChange={handleFilterChange}
+            manufacturers={product.manufacturers}
+          /> */}
         </div>
 
         <div className={styles.ColumnRight}>
-          <ProductsList product={product} />
+          {console.log(typeof product)}
+          <ProductsList product={product} addProduct={addProduct} />
         </div>
       </div>
     </>

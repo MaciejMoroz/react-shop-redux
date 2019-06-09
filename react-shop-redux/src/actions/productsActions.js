@@ -18,7 +18,7 @@ export function fetchProductSuccess(product) {
   };
 }
 
-export function fetchProductError(product) {
+export function fetchProductError() {
   return {
     type: ACTION_TYPES.PRODUCT_FETCH_ERROR
   };

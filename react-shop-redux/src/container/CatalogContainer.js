@@ -2,12 +2,14 @@ import { connect } from "react-redux";
 
 import catalogPage from "../pages/Catalog/CatalogPage";
 
-import { fetchProductsWithRedux } from "../actions/actions";
+import { fetchProductsWithRedux } from "../actions/productsActions";
+import { addProduct } from "../actions/cartActions";
 
 const mapStateToProps = state => ({
-  product: state.product,
-  isLoading: state.isLoading,
-  isError: state.isError
+  product: state.products.product,
+  isLoading: state.products.isLoading,
+  isError: state.products.isError,
+  addProduct: state.cartItems.addProduct
 });
 
 const mapDispatchToProps = {

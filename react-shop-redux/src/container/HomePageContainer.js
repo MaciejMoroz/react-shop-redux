@@ -2,12 +2,12 @@ import { connect } from "react-redux";
 
 import HomePage from "../pages/Home/HomePage";
 
-import { fetchProductsWithRedux } from "../actions/actions";
+import { fetchProductsWithRedux } from "../actions/productsActions";
 
 const mapStateToProps = state => ({
-  product: state.product,
-  isLoading: state.isLoading,
-  isError: state.isError
+  product: state.products.product,
+  isLoading: state.products.isLoading,
+  isError: state.products.isError
 });
 
 const mapDispatchToProps = {

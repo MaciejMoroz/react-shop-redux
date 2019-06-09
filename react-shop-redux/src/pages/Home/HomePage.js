@@ -21,19 +21,21 @@ const HomePage = ({ product, isLoading, isError, fetchProductsWithRedux }) => {
     let results = product;
     if (name && name.length) {
       const searchText = name.toLowerCase();
-      results = results.filter(p => p.name.toLowerCase().includes(searchText));
+      results = results.filter(product =>
+        product.name.toLowerCase().includes(searchText)
+      );
     }
 
     if (category) {
-      results = results.filter(p => p.category === category);
+      results = results.filter(product => product.category === category);
     }
 
     if (manufacture) {
-      results = results.filter(p => p.manufacture === manufacture);
+      results = results.filter(product => product.manufacture === manufacture);
     }
 
     if (featured) {
-      results = results.filter(p => p.featured === featured);
+      results = results.filter(product => product.featured === featured);
     }
 
     return results;

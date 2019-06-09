@@ -4,10 +4,10 @@ import styles from "./ProductsList.module.css";
 
 import Product from "components/Product/Product";
 
-const ProductsList = ({ product }) => (
+const ProductsList = ({ product, addProduct }) => (
   <div className={styles.Products}>
     {product.map(e => (
-      <Product key={e.id} {...e} />
+      <Product addProduct={addProduct} key={e.id} {...e} />
     ))}
   </div>
 );
